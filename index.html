@@ -15,19 +15,38 @@
 	<script type='text/javascript' src='js/handlebars.js' ></script>
 
 	<script src="js/foundation.min.js"></script>
+		<script src="js/foundation/foundation.slider.js"></script>
+
 	<script src="js/circles.min.js"></script>
+	<script src="js/d3.min.js"></script>
 
 	<script>
 	$(document).ready(function() { 
-		var house_json='{"house":[{"house_id":"1","name":"Sample House 1","owner":"Phil Dunphy","address":"1234 Random Street Atlanta - 30318","package":"InsuracenPackage1","premium":"123","premium_unit":"m/o","score":[{"label":"co-alarm",	"value":25,	"block_average":30,"unit":"count"},{"label":"co-alarm",	"value":25,	"block_average":30,	"unit":"count"	},	{	"label":"co-alarm",	"value":25,	"block_average":30,	"unit":"count"	}]},{"house_id":"2","name":"Sample House 1","owner":"Phil Dunphy","address":"1234 Random Street Atlanta - 30318","package":"InsuracenPackage1","premium":"123","premium_unit":"m/o","score":[{"label":"co-alarm",	"value":25,	"block_average":30,"unit":"count"},{"label":"co-alarm",	"value":25,	"block_average":30,	"unit":"count"	},	{	"label":"co-alarm",	"value":25,	"block_average":30,	"unit":"count"	}]}]}';
+		var weights_json='{"setting":[{"label":"COLevel","value":"9"},{"label":"BurnMe","value":"9"}]}';
+		var weights=jQuery.parseJSON(weights_json);
+		var house_data=null;
 
-		var data=jQuery.parseJSON(house_json);
-		console.log(data);
+		function pollForJSON(){
+			var house_json='{"house":[{"house_id":"1","name":"Sample House 1","owner":"Phil Dunphy","address":"1234 Random Street Atlanta - 30318","package":"InsuracenPackage1","premium":"123","premium_unit":"m/o","score":[{"label":"co-alarm",	"value":25,	"block_average":30,"unit":"count"},{"label":"co-alarm",	"value":25,	"block_average":30,	"unit":"count"	},	{	"label":"co-alarm",	"value":25,	"block_average":30,	"unit":"count"	}]},{"house_id":"2","name":"Sample House 1","owner":"Phil Dunphy","address":"1234 Random Street Atlanta - 30318","package":"InsuracenPackage1","premium":"123","premium_unit":"m/o","score":[{"label":"co-alarm",	"value":25,	"block_average":30,"unit":"count"},{"label":"co-alarm",	"value":25,	"block_average":30,	"unit":"count"	},	{	"label":"co-alarm",	"value":25,	"block_average":30,	"unit":"count"	}]}]}';
+
+			var data=jQuery.parseJSON(house_json);
+			updateData(data);
+		}
+
+		function checkWeights(){
+			var Source = $("#settings-template").html();
+	        var Template = Handlebars.compile(Source);
+	        var HTML = Template(weights);
+	        $('#settings-modal').html(HTML);
+		}
+
+		
+
 		function updateData(data){
 			var Source = $("#box-template").html();
 	        var Template = Handlebars.compile(Source);
 	        var HTML = Template(data);
-	        $('#content').append(HTML);
+	        $('#content').html(HTML);
 	        for(var i=0;i<data.house.length;i++){
 
 	        	var myCircle = Circles.create({
@@ -47,12 +66,99 @@
 	        }
 	    }
 	      
-		updateData(data);
+		function houseUpdate(data){
+			var Source = $("#house-template").html();
+	        var Template = Handlebars.compile(Source);
+	        var HTML = Template(data);
+	        $('#main-modal').html(HTML);
+	        
+		}
+
+		function chartUpdate(value,data){
+			console.log(data);
+			var actualData;
+			for(var i=0;i<data.score.length;i++){
+				if(data.score[i].label==value)
+					actualData=data.score[i];
+			}
+			
+			var values=actualData.values;
+			
+
+
+			var margin = {top: 20, right: 20, bottom: 30, left: 50},
+		    width = 600 - margin.left - margin.right,
+		    height = 300 - margin.top - margin.bottom;
+
+
+			var x = d3.time.scale().range([0, width]);
+			var y = d3.scale.linear().range([height, 0]);
+
+			var xAxis = d3.svg.axis().scale(x).orient("bottom").ticks(7);
+
+			var yAxis = d3.svg.axis().scale(y).orient("left").ticks(7);
+
+			var line = d3.svg.line()
+			    .x(function(d) { return x(new Date(d.timestamp*1000)); })
+			    .y(function(d) { return y(d.value); });
+
+			var svg = d3.select(".chart-data").append("svg")
+			    .attr("width", width + margin.left + margin.right)
+			    .attr("height", height + margin.top + margin.bottom)
+			  	.append("g")
+			    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+
+			  x.domain(d3.extent(actualData.values, function(d) { return new Date(d.timestamp*1000); }));
+			  y.domain(d3.extent(actualData.values, function(d) { return d.value; }));
+
+			  svg.append("g")
+			      .attr("class", "x axis")
+			      .attr("transform", "translate(0," + height + ")")
+			      .call(xAxis)
+			       
+
+			  svg.append("g")
+			      .attr("class", "y axis")
+			      .call(yAxis)
+			    .append("text")
+			      .attr("transform", "rotate(-90)")
+			      .attr("y", 6)
+			      .attr("dy", "1em")
+			      .style("text-anchor", "end")
+			      .text(actualData.unit);
+
+			  
+				svg.append("path")
+				    .datum(values)
+				    .attr("class", "line")
+				    .attr("d", line);
+
+		}
 
 		$('#settingsbutton').click(function(e){
-		$('#myModal').foundation('reveal', 'open');
+			checkWeights();
+			$('#settings-modal').foundation('reveal', 'open');
 
-		})
+		});
+
+		$('body').on('click','.settings-submit',function(e){
+			e.preventDefault();
+			$('#settings-modal').foundation('reveal', 'close');
+			$('.reveal-modal-bg').attr('style','display:none');
+		});
+
+		$('body').on('click','.more-info',function(e){
+			e.preventDefault();
+			var house_json='{"house_id": "1","name": "Sample House 1","owner": "Phil Dunphy","address": "1234 Random Street, Atlanta - 30318","package": "InsuracenPackage1","premium": "123","premium_unit": "m/o","score": [{"label": "co-alarm","values": [{"timestamp": "1424545205804","value": "15","block_average": "30"},{"timestamp": "1424545205904","value": "25", "block_average": "30"},{"timestamp": "1424545206004","value": "75","block_average": "30"}],"unit": "count"}]}';
+			house_data=jQuery.parseJSON(house_json);
+			houseUpdate(house_data);
+			chartUpdate("co-alarm",house_data);
+			$('#main-modal').foundation('reveal', 'open');
+		});
+
+		pollForJSON();
+
 	});
 
 
@@ -74,6 +180,23 @@
 	 	display: block;
 	 	margin:auto;
 	 }
+		.axis path,
+		.axis line {
+		  fill: none;
+		  stroke: #000;
+		  shape-rendering: crispEdges;
+		}
+
+		.x.axis path {
+		  display: none;
+		}
+
+		.line {
+		  fill: none;
+		  stroke: steelblue;
+		  stroke-width: 1.5px;
+		}
+	
 	</style>
 </head>
 <body style='min-height:100%'>
@@ -113,16 +236,57 @@
 <div class='row'>
 </div> 
 </div>
-
-<div id="myModal" class="reveal-modal" data-reveal>
-  <h2>Settings</h2>
-  <p class="lead">Your couch.  It is mine.</p>
-  <p>I'm a cool paragraph that lives inside of an even cooler modal. Wins!</p>
-  <a class="close-reveal-modal">&#215;</a>
+<div id="main-modal" class="reveal-modal" data-reveal>
+</div>
+<div id="settings-modal" class="reveal-modal tiny" data-reveal>
+ 
 </div>
 
 </body>
 </html>
+<script id="house-template" type="text/x-handlebars-template">
+  <h2>{{name}}</h2>
+  <p class="lead">Click on the options to update the graph</p>
+  <div class='large-3 small-12 columns'>
+  <ul>
+  {{#each score}}
+  <li data-id=1><a href="#">{{label}}</a></li>
+  {{/each}}
+  </ul>
+  </div>
+  <div class='large-9 columns small-12 chart-data'>
+
+  </div>
+  
+  {{#each setting}}
+  <label id="sliderLabel">{{label}}</label>
+	<div class="range-slider {{label}}" data-slider>
+  	<span class="range-slider-handle" role="slider" tabindex="0" aria-labelledby="sliderLabel"></span>
+  	<span class="range-slider-active-segment"></span>
+  	<input type="hidden" name={{label}}>
+	</div>
+	{{/each}}
+
+</script>
+
+<script id="settings-template" type="text/x-handlebars-template">
+
+
+  <h2>Settings</h2>
+  <p class="lead">Slide to set the importance of each other.</p>
+  <form>
+  {{#each setting}}
+  <label id="sliderLabel">{{label}}</label>
+	<div class="range-slider {{label}}" data-slider>
+  	<span class="range-slider-handle" role="slider" tabindex="0" aria-labelledby="sliderLabel"></span>
+  	<span class="range-slider-active-segment"></span>
+  	<input type="hidden" name={{label}}>
+	</div>
+	{{/each}}
+<button class='settings-submit'>Save</button>
+<button class='settings-submit'>Cancel</button>
+<div class='columns' />
+</script>
 
 <script id="box-template" type="text/x-handlebars-template">
 
@@ -139,7 +303,14 @@
 	</tr>
 	{{/each}}
 	</table>
+	<a href='#' class='more-info' data-id='{{house_id}}' style='display:block;text-align:center;margin:auto'>more</a>
 </div>
 {{/each}}
+
 <div class='columns' />
+</script>
+
+<script>
+$(document).foundation();
+
 </script>

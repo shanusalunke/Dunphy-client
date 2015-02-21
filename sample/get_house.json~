@@ -1,71 +1,304 @@
 {
-"house_id":1,
-"name":"Sample House 1",
-"owner":"Phil Dunphy",
-"address":"1234 Random Street, Atlanta - 30318",
-"package":"InsuracenPackage1",
-"premium":"123",
-"premium_unit":"m/o",
-"score":[
-	{
-	"label":"co-alarm",
-	"values":[{
-		"timestamp":"DDMMYY",
-		"value":25,
-		"block_average":30,	
-		},
-		{
-		"timestamp":"DDMMYY",
-		"value":25,
-		"block_average":30,	
-		},
-		{
-		"timestamp":"DDMMYY",
-		"value":25,
-		"block_average":30,	
-		},
-		],
-	"unit":"count"
-	},
-	{
-	"label":"co-alarm",
-	"values":[{
-		"timestamp":"DDMMYY",
-		"value":25,
-		"block_average":30,	
-		},
-		{
-		"timestamp":"DDMMYY",
-		"value":25,
-		"block_average":30,	
-		},
-		{
-		"timestamp":"DDMMYY",
-		"value":25,
-		"block_average":30,	
-		},
-		],
-	"unit":"count"
-	},
-	{
-	"label":"co-alarm",
-	"values":[{
-		"timestamp":"DDMMYY",
-		"value":25,
-		"block_average":30,	
-		},
-		{
-		"timestamp":"DDMMYY",
-		"value":25,
-		"block_average":30,	
-		},
-		{
-		"timestamp":"DDMMYY",
-		"value":25,
-		"block_average":30,	
-		},
-		],
-	"unit":"count"
-	}
-	]
+<<<<<<< HEAD
+  "premium_unit": "m\/o",
+  "premium": "123",
+  "name": "Sample House 1",
+  "package": "InsuracenPackage1",
+  "score": [
+    {
+      "values": [
+        {
+          "timestamp": 1424555625.2433,
+          "block_average": 30,
+          "value": 1
+        }
+      ],
+      "unit": "count",
+      "label": "contact-sensor"
+    },
+    {
+      "values": [
+        {
+          "timestamp": 1424555625.2434,
+          "block_average": 30,
+          "value": 2
+        }
+      ],
+      "unit": "count",
+      "label": "contact-sensor"
+    },
+    {
+      "values": [
+        {
+          "timestamp": 1424555625.2434,
+          "block_average": 30,
+          "value": 1
+        }
+      ],
+      "unit": "count",
+      "label": "contact-sensor"
+    },
+    {
+      "values": [
+        {
+          "timestamp": 1424555625.2435,
+          "block_average": 30,
+          "value": 1
+        }
+      ],
+      "unit": "count",
+      "label": "contact-sensor"
+    },
+    {
+      "values": [
+        {
+          "timestamp": 1424555625.2435,
+          "block_average": 30,
+          "value": 9
+        }
+      ],
+      "unit": "count",
+      "label": "alarm-keypad2"
+    },
+    {
+      "values": [
+        {
+          "timestamp": 1424555625.2435,
+          "block_average": 30,
+          "value": 2
+        }
+      ],
+      "unit": "count",
+      "label": "camera"
+    },
+    {
+      "values": [
+        {
+          "timestamp": 1424555625.2436,
+          "block_average": 30,
+          "value": 1
+        }
+      ],
+      "unit": "count",
+      "label": "co-sensor"
+    },
+    {
+      "values": [
+        {
+          "timestamp": 1424555625.2436,
+          "block_average": 30,
+          "value": 19
+        }
+      ],
+      "unit": "count",
+      "label": "water-sensor"
+    },
+    {
+      "values": [
+        {
+          "timestamp": 1424555625.2436,
+          "block_average": 30,
+          "value": 2
+        }
+      ],
+      "unit": "count",
+      "label": "garage-door-controller"
+    },
+    {
+      "values": [
+        {
+          "timestamp": 1424555625.2437,
+          "block_average": 30,
+          "value": 5
+        }
+      ],
+      "unit": "count",
+      "label": "motion-sensor"
+    },
+    {
+      "values": [
+        {
+          "timestamp": 1424555625.2437,
+          "block_average": 30,
+          "value": 2
+        }
+      ],
+      "unit": "count",
+      "label": "contact-sensor"
+    },
+    {
+      "values": [
+        {
+          "timestamp": 1424555625.2437,
+          "block_average": 30,
+          "value": 29
+        }
+      ],
+      "unit": "count",
+      "label": "digital-life-controller"
+    },
+    {
+      "values": [
+        
+      ],
+      "unit": "count",
+      "label": "digital-life-system"
+    },
+    {
+      "values": [
+        {
+          "timestamp": 1424555625.2438,
+          "block_average": 30,
+          "value": 2
+        }
+      ],
+      "unit": "count",
+      "label": "thermostat"
+    },
+    {
+      "values": [
+        {
+          "timestamp": 1424555625.2438,
+          "block_average": 30,
+          "value": 2
+        }
+      ],
+      "unit": "count",
+      "label": "camera"
+    },
+    {
+      "values": [
+        {
+          "timestamp": 1424555625.2439,
+          "block_average": 30,
+          "value": 3
+        }
+      ],
+      "unit": "count",
+      "label": "smart-plug"
+    },
+    {
+      "values": [
+        {
+          "timestamp": 1424555625.2439,
+          "block_average": 30,
+          "value": 2
+        }
+      ],
+      "unit": "count",
+      "label": "contact-sensor"
+    },
+    {
+      "values": [
+        {
+          "timestamp": 1424555625.2439,
+          "block_average": 30,
+          "value": 2
+        }
+      ],
+      "unit": "count",
+      "label": "contact-sensor"
+    },
+    {
+      "values": [
+        {
+          "timestamp": 1424555625.244,
+          "block_average": 30,
+          "value": 2
+        }
+      ],
+      "unit": "count",
+      "label": "contact-sensor"
+    },
+    {
+      "values": [
+        {
+          "timestamp": 1424555625.244,
+          "block_average": 30,
+          "value": 4
+        }
+      ],
+      "unit": "count",
+      "label": "door-lock"
+    }
+  ],
+  "address": "1234 Random Street, Atlanta - 30318",
+  "owner": "Phil Dunphy",
+  "house_id": 1
 }
+
+=======
+    "house_id": 1,
+    "name": "Sample House 1",
+    "owner": "Phil Dunphy",
+    "address": "1234 Random Street, Atlanta - 30318",
+    "package": "InsuracenPackage1",
+    "premium": "123",
+    "premium_unit": "m/o",
+    "score": [
+        {
+            "label": "co-alarm",
+            "values": [
+                {
+                    "timestamp": "1424545206000",
+                    "value": 25,
+                    "block_average": 30
+                },
+                {
+                    "timestamp": "1424545206000",
+                    "value": 25,
+                    "block_average": 30
+                },
+                {
+                    "timestamp": "1424545206000",
+                    "value": 25,
+                    "block_average": 30
+                }
+            ],
+            "unit": "count"
+        },
+        {
+            "label": "co-alarm",
+            "values": [
+                {
+                    "timestamp": "1424545206000",
+                    "value": 25,
+                    "block_average": 30
+                },
+                {
+                    "timestamp": "1424545206000",
+                    "value": 25,
+                    "block_average": 30
+                },
+                {
+                    "timestamp": "1424545206000",
+                    "value": 25,
+                    "block_average": 30
+                }
+            ],
+            "unit": "count"
+        },
+        {
+            "label": "co-alarm",
+            "values": [
+                {
+                    "timestamp": "DDMMYY",
+                    "value": 25,
+                    "block_average": 30
+                },
+                {
+                    "timestamp": "DDMMYY",
+                    "value": 25,
+                    "block_average": 30
+                },
+                {
+                    "timestamp": "DDMMYY",
+                    "value": 25,
+                    "block_average": 30
+                }
+            ],
+            "unit": "count"
+        }
+    ]
+}
+>>>>>>> 9952dbd512257d2af96ad88b0acbcfa481cedac8
