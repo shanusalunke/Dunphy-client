@@ -19,10 +19,65 @@
 <link media="all" type="text/css" rel="stylesheet" href="css/foundation.css">
 
 	<style text='text/css'>
+	 .box{
+	 	min-height: 100px;
+	 	 box-shadow: 0px 5px 8px #888888;
+	 	border: 1px solid #ccc;
+	 }
+
+	 .large-2half{
+	 	width: 22%;
+	 	margin: 1%;
+	 }
 	</style>
 </head>
 <body>
-<h1>Dunphy</h1>
+<div class='large'></div>
+<div class="sticky">
+  <nav class="top-bar sticky" data-topbar role="navigation" data-options=>
+    <ul class="title-area">
+	    <li class="name">
+	      <h1>
+	      	<a href="/">
+	      		<img src="img/d.png" style="width:30px;height:30px;margin-top:5px;display:inline-block" />
+	      		<span>Dunphy</span>
+	      		
+	      	</a>
+	      </h1>
+	     </li>
+	     <li class="toggle-topbar notification-menu-item notificaition-mobile"></li>
+	     <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
+
+     </ul>
+
+  <section class="top-bar-section">
+    <!-- Right Nav Section -->
+    
+    <ul class="right">
+      <li><a href="<% URL::to('myexpertise')%>">Settings</a></li>
+	</ul>
+
+    <!--<li class="notification-menu-item hide-for-small">
+    </li>-->
+      
+    </section>
+  </nav>
+</div>
+
+<div class='content row'>
+<div class='row'>
+<div class='large-2half box columns'>
+</div>
+<div class='large-2half box columns'>
+</div>
+<div class='large-2half box columns'>
+</div>
+<div class='large-2half box columns'>
+</div>
+<div class='columns' />
+</div>
+</div> 
+
 
 </body>
 </html>
