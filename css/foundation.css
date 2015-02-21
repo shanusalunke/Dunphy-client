@@ -3965,7 +3965,7 @@ blockquote p {
   left: 0;
   right: 0;
   background: #000000;
-  background: rgba(0, 0, 0, 0.45);
+  background: rgba(0, 0, 0, 0.0);
   z-index: 1004;
   display: none;
   left: 0; }

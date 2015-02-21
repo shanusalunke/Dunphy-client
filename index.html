@@ -12,10 +12,51 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
-	
+	<script type='text/javascript' src='js/handlebars.js' ></script>
 
 	<script src="js/foundation.min.js"></script>
+	<script src="js/circles.min.js"></script>
 
+	<script>
+	$(document).ready(function() { 
+		var house_json='{"house":[{"house_id":"1","name":"Sample House 1","owner":"Phil Dunphy","address":"1234 Random Street Atlanta - 30318","package":"InsuracenPackage1","premium":"123","premium_unit":"m/o","score":[{"label":"co-alarm",	"value":25,	"block_average":30,"unit":"count"},{"label":"co-alarm",	"value":25,	"block_average":30,	"unit":"count"	},	{	"label":"co-alarm",	"value":25,	"block_average":30,	"unit":"count"	}]},{"house_id":"2","name":"Sample House 1","owner":"Phil Dunphy","address":"1234 Random Street Atlanta - 30318","package":"InsuracenPackage1","premium":"123","premium_unit":"m/o","score":[{"label":"co-alarm",	"value":25,	"block_average":30,"unit":"count"},{"label":"co-alarm",	"value":25,	"block_average":30,	"unit":"count"	},	{	"label":"co-alarm",	"value":25,	"block_average":30,	"unit":"count"	}]}]}';
+
+		var data=jQuery.parseJSON(house_json);
+		console.log(data);
+		function updateData(data){
+			var Source = $("#box-template").html();
+	        var Template = Handlebars.compile(Source);
+	        var HTML = Template(data);
+	        $('#content').append(HTML);
+	        for(var i=0;i<data.house.length;i++){
+
+	        	var myCircle = Circles.create({
+					  id:           'circles-'+data.house[i].house_id,
+					  radius:       60,
+					  value:        43,
+					  maxValue:     100,
+					  width:        10,
+					  text:         function(value){return value + '%';},
+					  colors:       ['#D3B6C6', '#4B253A'],
+					  duration:       400,
+					  wrpClass:     'circles-wrp',
+					  textClass:      'circles-text',
+					  styleWrapper: true,
+					  styleText:    true
+					});
+	        }
+	    }
+	      
+		updateData(data);
+
+		$('#settingsbutton').click(function(e){
+		$('#myModal').foundation('reveal', 'open');
+
+		})
+	});
+
+
+	</script>
 <link media="all" type="text/css" rel="stylesheet" href="css/foundation.css">
 
 	<style text='text/css'>
@@ -29,9 +70,13 @@
 	 	width: 22%;
 	 	margin: 1%;
 	 }
+	 .circles-wrp{
+	 	display: block;
+	 	margin:auto;
+	 }
 	</style>
 </head>
-<body>
+<body style='min-height:100%'>
 <div class='large'></div>
 <div class="sticky">
   <nav class="top-bar sticky" data-topbar role="navigation" data-options=>
@@ -54,7 +99,7 @@
     <!-- Right Nav Section -->
     
     <ul class="right">
-      <li><a href="<% URL::to('myexpertise')%>">Settings</a></li>
+      <li><a href="#" data-reveal-id="myModal" id='settingsbutton'>Settings</a></li>
 	</ul>
 
     <!--<li class="notification-menu-item hide-for-small">
@@ -64,20 +109,37 @@
   </nav>
 </div>
 
-<div class='content row'>
+<div class='content row' id='content'>
 <div class='row'>
-<div class='large-2half box columns'>
-</div>
-<div class='large-2half box columns'>
-</div>
-<div class='large-2half box columns'>
-</div>
-<div class='large-2half box columns'>
-</div>
-<div class='columns' />
-</div>
 </div> 
+</div>
 
+<div id="myModal" class="reveal-modal" data-reveal>
+  <h2>Settings</h2>
+  <p class="lead">Your couch.  It is mine.</p>
+  <p>I'm a cool paragraph that lives inside of an even cooler modal. Wins!</p>
+  <a class="close-reveal-modal">&#215;</a>
+</div>
 
 </body>
 </html>
+
+<script id="box-template" type="text/x-handlebars-template">
+
+{{#each house}}
+<div class='large-2half box columns'>
+	<span>{{name}}</span>
+	<div class="circle" id="circles-{{house_id}}" style="margin-top:20px"></div>
+
+	<table >
+	{{#each score}}
+	<tr>
+	<td>{{label}}:</td>
+	<td>{{value}} {{unit}}</td>
+	</tr>
+	{{/each}}
+	</table>
+</div>
+{{/each}}
+<div class='columns' />
+</script>
