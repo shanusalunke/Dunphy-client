@@ -9,15 +9,18 @@
 	"label":"co-alarm",
 	"value":25,
 	"block_average":30
+	"unit":"count"
 	},
 	{
 	"label":"co-alarm",
 	"value":25,
 	"block_average":30
+	"unit":"count"
 	},
 	{
 	"label":"co-alarm",
 	"value":25,
 	"block_average":30
+	"unit":"count"
 	}]
 }
