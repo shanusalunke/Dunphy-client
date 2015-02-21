@@ -1,71 +1,74 @@
 {
-"house_id":1,
-"name":"Sample House 1",
-"owner":"Phil Dunphy",
-"address":"1234 Random Street, Atlanta - 30318",
-"package":"InsuracenPackage1",
-"premium":"123",
-"premium_unit":"m/o",
-"score":[
-	{
-	"label":"co-alarm",
-	"values":[{
-		"timestamp":"1424545206000",
-		"value":25,
-		"block_average":30
-		},
-		{
-		"timestamp":"1424545206000",
-		"value":25,
-		"block_average":30
-		},
-		{
-		"timestamp":"1424545206000",
-		"value":25,
-		"block_average":30	
-		},
-		],
-	"unit":"count"
-	},
-	{
-	"label":"co-alarm",
-	"values":[{
-		"timestamp":"1424545206000",
-		"value":25,
-		"block_average":30	
-		},
-		{
-		"timestamp":"1424545206000",
-		"value":25,
-		"block_average":30	
-		},
-		{
-		"timestamp":"1424545206000",
-		"value":25,
-		"block_average":30
-		},
-		],
-	"unit":"count"
-	},
-	{
-	"label":"co-alarm",
-	"values":[{
-		"timestamp":"DDMMYY",
-		"value":25,
-		"block_average":30
-		},
-		{
-		"timestamp":"DDMMYY",
-		"value":25,
-		"block_average":30
-		},
-		{
-		"timestamp":"DDMMYY",
-		"value":25,
-		"block_average":30
-		}
-		],
-	"unit":"count"
-	}
-	]
+    "house_id": 1,
+    "name": "Sample House 1",
+    "owner": "Phil Dunphy",
+    "address": "1234 Random Street, Atlanta - 30318",
+    "package": "InsuracenPackage1",
+    "premium": "123",
+    "premium_unit": "m/o",
+    "score": [
+        {
+            "label": "co-alarm",
+            "values": [
+                {
+                    "timestamp": "1424545206000",
+                    "value": 25,
+                    "block_average": 30
+                },
+                {
+                    "timestamp": "1424545206000",
+                    "value": 25,
+                    "block_average": 30
+                },
+                {
+                    "timestamp": "1424545206000",
+                    "value": 25,
+                    "block_average": 30
+                }
+            ],
+            "unit": "count"
+        },
+        {
+            "label": "co-alarm",
+            "values": [
+                {
+                    "timestamp": "1424545206000",
+                    "value": 25,
+                    "block_average": 30
+                },
+                {
+                    "timestamp": "1424545206000",
+                    "value": 25,
+                    "block_average": 30
+                },
+                {
+                    "timestamp": "1424545206000",
+                    "value": 25,
+                    "block_average": 30
+                }
+            ],
+            "unit": "count"
+        },
+        {
+            "label": "co-alarm",
+            "values": [
+                {
+                    "timestamp": "DDMMYY",
+                    "value": 25,
+                    "block_average": 30
+                },
+                {
+                    "timestamp": "DDMMYY",
+                    "value": 25,
+                    "block_average": 30
+                },
+                {
+                    "timestamp": "DDMMYY",
+                    "value": 25,
+                    "block_average": 30
+                }
+            ],
+            "unit": "count"
+        }
+    ]
 }
