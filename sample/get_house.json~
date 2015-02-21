@@ -1,4 +1,5 @@
 {
+"house_id":"DB145J",
 "name":"Sample House 1",
 "owner":"Phil Dunphy",
 "address":"1234 Random Street, Atlanta - 30318",
@@ -8,19 +9,19 @@
 "score":[{
 	"label":"co-alarm",
 	"value":25,
-	"block_average":30
+	"block_average":30,
 	"unit":"count"
 	},
 	{
 	"label":"co-alarm",
 	"value":25,
-	"block_average":30
+	"block_average":30,
 	"unit":"count"
 	},
 	{
 	"label":"co-alarm",
 	"value":25,
-	"block_average":30
+	"block_average":30,
 	"unit":"count"
 	}]
 }
