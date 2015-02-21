@@ -6,22 +6,66 @@
 "package":"InsuracenPackage1",
 "premium":"123",
 "premium_unit":"m/o",
-"score":[{
+"score":[
+	{
 	"label":"co-alarm",
-	"value":25,
-	"block_average":30,
+	"values":[{
+		"timestamp":"DDMMYY",
+		"value":25,
+		"block_average":30,	
+		},
+		{
+		"timestamp":"DDMMYY",
+		"value":25,
+		"block_average":30,	
+		},
+		{
+		"timestamp":"DDMMYY",
+		"value":25,
+		"block_average":30,	
+		},
+		],
 	"unit":"count"
 	},
 	{
 	"label":"co-alarm",
-	"value":25,
-	"block_average":30,
+	"values":[{
+		"timestamp":"DDMMYY",
+		"value":25,
+		"block_average":30,	
+		},
+		{
+		"timestamp":"DDMMYY",
+		"value":25,
+		"block_average":30,	
+		},
+		{
+		"timestamp":"DDMMYY",
+		"value":25,
+		"block_average":30,	
+		},
+		],
 	"unit":"count"
 	},
 	{
 	"label":"co-alarm",
-	"value":25,
-	"block_average":30,
+	"values":[{
+		"timestamp":"DDMMYY",
+		"value":25,
+		"block_average":30,	
+		},
+		{
+		"timestamp":"DDMMYY",
+		"value":25,
+		"block_average":30,	
+		},
+		{
+		"timestamp":"DDMMYY",
+		"value":25,
+		"block_average":30,	
+		},
+		],
 	"unit":"count"
-	}]
+	}
+	]
 }
