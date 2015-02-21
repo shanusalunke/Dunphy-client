@@ -12,17 +12,17 @@
 	"values":[{
 		"timestamp":"1424545206000",
 		"value":25,
-		"block_average":30,	
+		"block_average":30
 		},
 		{
 		"timestamp":"1424545206000",
 		"value":25,
-		"block_average":30,	
+		"block_average":30
 		},
 		{
 		"timestamp":"1424545206000",
 		"value":25,
-		"block_average":30,	
+		"block_average":30	
 		},
 		],
 	"unit":"count"
@@ -32,17 +32,17 @@
 	"values":[{
 		"timestamp":"1424545206000",
 		"value":25,
-		"block_average":30,	
+		"block_average":30	
 		},
 		{
 		"timestamp":"1424545206000",
 		"value":25,
-		"block_average":30,	
+		"block_average":30	
 		},
 		{
 		"timestamp":"1424545206000",
 		"value":25,
-		"block_average":30,	
+		"block_average":30
 		},
 		],
 	"unit":"count"
@@ -52,18 +52,18 @@
 	"values":[{
 		"timestamp":"DDMMYY",
 		"value":25,
-		"block_average":30,	
+		"block_average":30
 		},
 		{
 		"timestamp":"DDMMYY",
 		"value":25,
-		"block_average":30,	
+		"block_average":30
 		},
 		{
 		"timestamp":"DDMMYY",
 		"value":25,
-		"block_average":30,	
-		},
+		"block_average":30
+		}
 		],
 	"unit":"count"
 	}
