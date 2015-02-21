@@ -1,0 +1,23 @@
+{
+"name":"Sample House 1",
+"owner":"Phil Dunphy",
+"address":"1234 Random Street, Atlanta - 30318",
+"package":"InsuracenPackage1",
+"premium":"123",
+"premium_unit":"m/o",
+"score":[{
+	"label":"co-alarm",
+	"value":25,
+	"block_average":30
+	},
+	{
+	"label":"co-alarm",
+	"value":25,
+	"block_average":30
+	},
+	{
+	"label":"co-alarm",
+	"value":25,
+	"block_average":30
+	}]
+}
