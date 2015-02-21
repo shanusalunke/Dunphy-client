@@ -10,17 +10,17 @@
 	{
 	"label":"co-alarm",
 	"values":[{
-		"timestamp":"DDMMYY",
+		"timestamp":"1424545206000",
 		"value":25,
 		"block_average":30,	
 		},
 		{
-		"timestamp":"DDMMYY",
+		"timestamp":"1424545206000",
 		"value":25,
 		"block_average":30,	
 		},
 		{
-		"timestamp":"DDMMYY",
+		"timestamp":"1424545206000",
 		"value":25,
 		"block_average":30,	
 		},
@@ -30,17 +30,17 @@
 	{
 	"label":"co-alarm",
 	"values":[{
-		"timestamp":"DDMMYY",
+		"timestamp":"1424545206000",
 		"value":25,
 		"block_average":30,	
 		},
 		{
-		"timestamp":"DDMMYY",
+		"timestamp":"1424545206000",
 		"value":25,
 		"block_average":30,	
 		},
 		{
-		"timestamp":"DDMMYY",
+		"timestamp":"1424545206000",
 		"value":25,
 		"block_average":30,	
 		},
