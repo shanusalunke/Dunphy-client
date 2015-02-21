@@ -1161,7 +1161,7 @@ button, .button {
   padding-bottom: 1.0625rem;
   padding-left: 2rem;
   font-size: 1rem;
-  background-color:#2AD6AE;
+  background-color:#51264a;
   border-color: #007095;
   color: #FFFFFF;
   transition: background-color 300ms ease-out; }
@@ -5368,9 +5368,9 @@ table {
   cursor: pointer;
   -ms-touch-action: manipulation;
   touch-action: manipulation;
-  background: #008CBA; }
+  background: #51264a; }
   .range-slider-handle:hover {
-    background: #007ba4; }
+    background: #51264a; }
 
 [class*="block-grid-"] {
   display: block;
