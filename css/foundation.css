@@ -1716,7 +1716,7 @@ meta.foundation-mq-topbar {
   height: 2.8125rem;
   line-height: 2.8125rem;
   position: relative;
-  background: #fff;
+  background: none repeat scroll 0 0 #999999;
 
   margin-bottom: 0; }
   .top-bar ul {
